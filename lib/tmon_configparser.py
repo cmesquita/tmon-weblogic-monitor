@@ -72,3 +72,14 @@ def getEStype():
         es_type = config.get('elasticsearch','type')
         return es_type
 
+def getTmonLogMetrics():
+	tmon_metrics = config.get('tmon_log','tmon_metrics')
+	return tmon_metrics
+
+def getTmonLogThreads():
+	tmon_threads = config.get('tmon_log','tmon_threads')
+	return tmon_threads
+
+def getTmonLogRotate():
+	tmon_rotate = config.get('tmon_log','rotate')
+	return tmon_rotate

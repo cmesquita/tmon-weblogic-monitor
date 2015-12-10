@@ -1,6 +1,7 @@
 import  lib.tmon_configparser as configparser
 import  modules.tmon_metrics as metrics
 import	modules.tmon_threads as threads
+import time as pytime
 
 def tmonMetricsMonitor():
 		# parameter from tmon3.0.conf
@@ -61,8 +62,18 @@ def tmonStackMonitor():
 
 if __name__== "main": 
 
-	file = open("tmon.log","a")
+	tmonLogMetrics = configparser.getTmonLogMetrics()
+	tmonLogThreads = configparser.getTmonLogThreads()
+	tmonLogRotate =  configparser.getTmonLogRotate()
+	timestampNOW = pytime.strftime("%Y-%m-%d", pytime.gmtime())
+	
+	if tmonLogRotate == 'Y':
+		file = open( tmonLogMetrics + timestampNOW  , "a" )
+	else:
+		file = open(tmonLogMetrics , "a" )
+
 	log = ''
+	
 	for content_tmon in tmonMetricsMonitor():
 		log = ''
 		for log_entry in content_tmon:
@@ -70,9 +81,18 @@ if __name__== "main":
 		file.write( log )
 		file.write( "\n")
 	file.close()	
+				
 
-	file = open("tmon2.log","a")
+
+
+
+	if tmonLogRotate == 'Y':
+		file = open(tmonLogThreads + timestampNOW  , "a" )
+	else:
+		file = open(tmonLogThreads , "a" )
+
 	log = ''
+
 	for content_tmon2 in tmonStackMonitor():
 		log = ''
 		for log_entry in content_tmon2:
