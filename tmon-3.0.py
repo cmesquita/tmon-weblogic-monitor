@@ -22,9 +22,23 @@ def tmonMetricsMonitor():
 				http_sessions =  str(metrics.getHTTPSessions( args , paramAdminUser , paramAdminPass , paramConnectString ))
 				open_sockets =  str(metrics.getOpenSockets( args , paramAdminUser , paramAdminPass , paramConnectString  ))
 				current_ts =  str(metrics.getTimeStamp() )
+
+				check =  threads.getThreadStucksCount( args )[0]
+
+				if check != "failed":
+					threads_info =  threads.getThreadStucksCount( args )
+					 #[0] threads id list , [1] count threads hogging , [2] count threads stuck , [3] Throughput , [4] ExecuteThreadTotalCount , [5] ExecuteThreadIdleCount
+					hogging_cnt  = threads_info[1]
+					stuck_cnt    = threads_info[2] 
+					thread_Throughput =  threads_info[3]
+					thread_ExecuteThreadTotalCount = threads_info[4]
+					thread_ExecuteThreadIdleCount = threads_info[5]
+				else:
+					print "debug: tmonStackMonitor - there is an issue to get attribute value, please check if server is available. \n"
+
 				if gc_metrics != "failed":
-					tmonLog.append( [ server_name , app_name , gc_metrics , heap_usage , http_sessions , open_sockets , current_ts ])
-					#container || app || gc time || gc count || heap usage || http sessions cnt || open sockets cnt || timestamp 
+					tmonLog.append( [ server_name , app_name , gc_metrics , heap_usage , http_sessions , open_sockets , hogging_cnt , stuck_cnt , thread_Throughput , thread_ExecuteThreadTotalCount  , thread_ExecuteThreadIdleCount ,  current_ts ])
+					#container || app || gc time || gc count || heap usage || http sessions cnt || open sockets cnt || hogging cnt || stuck cnt|| Throughput || ExecuteThreadTotalCount || ExecuteThreadIdleCount || timestamp 
 				else:
 					print "debug: tmonMetricsMonitor - there is an issue to get attribute value, please check if server is available. \n"
 			except WLSTException,e:

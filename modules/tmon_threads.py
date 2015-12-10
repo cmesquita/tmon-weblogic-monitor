@@ -18,15 +18,21 @@ def getThreadStucksCount( serverlist ):
 		threads = get('ExecuteThreads')
 		hogging_count =  get('HoggingThreadCount')
 		stuck_count = get('StuckThreadCount')
+		thread_Throughput = get('Throughput')
+		thread_ExecuteThreadTotalCount = get('ExecuteThreadTotalCount')
+		thread_ExecuteThreadIdleCount = get('ExecuteThreadIdleCount')
 		for thread in threads :
         		isHogging = thread.isHogger()
         		if isHogging > 0 :
 				thread_info = thread.getName().split()
 				thread_hogging.append(thread_info[1] + ' ' + thread_info[2])
-		#[0] threads id list , [1] count threads hogging , [2] count threads stuck 
+		#[0] threads id list , [1] count threads hogging , [2] count threads stuck , [3] Throughput , [4] ExecuteThreadTotalCount , [5] ExecuteThreadIdleCount
 		threads_details.append(thread_hogging)
 		threads_details.append(hogging_count)
 		threads_details.append(stuck_count)  
+		threads_details.append(thread_Throughput)
+		threads_details.append(thread_ExecuteThreadTotalCount)
+		threads_details.append(thread_ExecuteThreadIdleCount)
 		disconnect()
 		return threads_details
 	
