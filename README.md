@@ -1,11 +1,12 @@
 #tmon-3.0 a WEBLOGIC script monitor
 ## features
 ### (a) collects a wide range of servers metrics:
+###### Tmon connects to either admin console and remote servers runtime to obtain many  performance metrics. It possible to configure which weblogic servers must be analyzed.
 ######[server name, application name,  garbage collector time , garbage collector count , heap mem usage , http sessions cnt ,  open sockets cnt , hogging threads cnt ,  stuck threads cnt , server throughput  ,  server ExecuteThreadTotalCount , server ExecuteThreadIdleCount ,  current timestamp] 
 ### (b) puts these metrics in a log file to be analyzed
 ###### configuration file tmon3.0.conf can be used to set a custom log files location and name.
 
-### (c) creates a log file containing a hash value of the stack trace for each HOGGING thread id.  
+### (c) creates a log file containing a hash value of the stack trace for each HOGGING thread.  
 ######[sever name , application name , thread id , hash value , current timestamp]
 ###### configuration file tmon3.0.conf can be used to set the elastic search destination to create a FROM: TO: index 
 
