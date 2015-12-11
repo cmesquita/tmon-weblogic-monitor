@@ -16,7 +16,7 @@
 ## how to use:
 #####1) set up weblogic environment variables . $ORACLE_HOME/wlserver/server/bin/setWLSEnv.sh 
 #####2) go to tmon-3.0 directory 
-#####cd /home/oracle/tmon-weblogic-monitor 
+######cd /home/oracle/tmon-weblogic-monitor 
 #####3) configure tmon3.0.conf with the environment infos
 #####4) run tmon-3.0 
 ######java weblogic.WLST tmon-3.0.py 
