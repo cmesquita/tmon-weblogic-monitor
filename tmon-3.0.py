@@ -28,6 +28,7 @@ def tmonMetricsMonitor():
 				if check != "failed":
 					threads_info =  threads.getThreadStucksCount( args )
 					 #[0] threads id list , [1] count threads hogging , [2] count threads stuck , [3] Throughput , [4] ExecuteThreadTotalCount , [5] ExecuteThreadIdleCount
+					print "debug: elapsed" + str(threads_info[0])
 					hogging_cnt  = threads_info[1]
 					stuck_cnt    = threads_info[2] 
 					thread_Throughput =  threads_info[3]

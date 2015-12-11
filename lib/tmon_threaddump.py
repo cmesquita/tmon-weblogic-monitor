@@ -4,6 +4,7 @@ def extractStackTrace( file, threadid ):
 	keepCurrentSet = False
 	stack_list = []
 	for thread in threadid:
+		print "debug: extract" + str(thread)
 		keepCurrentSet = False
 		inFile = open( file )
 		buffer = ""
