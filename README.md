@@ -26,6 +26,6 @@
 #####4) run tmon-3.0 
 ######java weblogic.WLST tmon-3.0.py 
 
-Author: Cesar Mesquita
-Email: cmesquita00@hotmail.com
-linkdin: https://br.linkedin.com/in/cmesquita00
+#######Author: Cesar Mesquita
+#######Email: cmesquita00@hotmail.com
+#######linkdin: https://br.linkedin.com/in/cmesquita00
