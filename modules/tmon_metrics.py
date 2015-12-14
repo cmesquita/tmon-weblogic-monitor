@@ -4,7 +4,7 @@ from wlstModule import *
 def getGCmetrics( serverlist ):
 	#for i in serverlist:
 	j = serverlist.split()
-	# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url + [5] = appName
+	# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url + [5] = appName , [6] contextRoot
 	try:
 		connect(j[2],j[3],j[4])
 		custom()
@@ -76,12 +76,13 @@ def getHTTPSessions( serverlist , user , password , url   ):
                 	domainRuntime()
 		#for name in serverlist:
 		j = serverlist.split()
-		# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url , [5] appName
+		# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url , [5] appName , [6] contextRoot
 		ServerName = j[0]
 		app = j[5]
-               	appName = str(app)
+               	contextRoot = str(j[6])
+		appName = str(app)
                	serverName = str(ServerName)
-               	pathName = '/ServerRuntimes/' + serverName + '/ApplicationRuntimes/' + appName + '/ComponentRuntimes/' + serverName + '_/' + appName
+               	pathName = '/ServerRuntimes/' + serverName + '/ApplicationRuntimes/' + appName + '/ComponentRuntimes/' + serverName + '_/' + contextRoot
 		cd(pathName)
                	OpenSessionsCurrentCount = get('OpenSessionsCurrentCount')
 		getOpenSessionsCurrentCount = str(OpenSessionsCurrentCount) + ' ' + getOpenSessionsCurrentCount

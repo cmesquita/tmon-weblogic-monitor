@@ -8,7 +8,7 @@ def getThreadStucksCount( serverlist ):
 	try:
 		threads_details = []
 		thread_hogging = []
-        	# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url , [5] = appName
+        	# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url , [5] = appName , [6] contextRoot
 		j = serverlist.split()
         	connect(j[2],j[3],j[4])
 		pwdstr = pwd()[:15]
@@ -49,7 +49,7 @@ def getThreadStucksCount( serverlist ):
 def getThreadStackHash( serverlist , thread_id , es_url , es_indexname , es_type ):
 	try:
 		j = serverlist.split()
-		# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url , [5] = appName
+		# [0] = container , [1] = method , [2] = user , [3] = pass , [4] = url , [5] = appName , [6] contextRoot
 		print "debug: " + j[2] + " - " + j[0]
 		connect(j[2],j[3],j[4])
 		threadDump()
