@@ -64,7 +64,7 @@ def tmonStackMonitor():
 				hogging_cnt = threads.getThreadStucksCount( i )[1]
 				stuck_cnt = threads.getThreadStucksCount( i )[2]
 				for z in threads.getThreadStackHash( i ,  threads.getThreadStucksCount( i )[0] , paramESurl , paramESindexName , paramEStype ):
-					tmonLog2.append( [ j[0] , j[5] , hogging_cnt , stuck_cnt , z[0] , current_ts] )
+					tmonLog2.append( [ j[0] , j[5], z[0] , current_ts] )
 			else:
 				print "debug: tmonStackMonitor - there is an issue to get attribute value, please check if server is available. \n"
 		return tmonLog2
