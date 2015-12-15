@@ -56,15 +56,18 @@ def tmonStackMonitor():
 		paramEStype = configparser.getEStype()
 
 		tmonLog2 = []
-		for i in paramServerList:
-			j = i.split()
-			check =  threads.getThreadStucksCount( i )[0]
+		for args in paramServerList:
+			profile_server = args.split()
+			threads_stucks = threads.getThreadStucksCount( args )
+			#check =  threads.getThreadStucksCount( i )[0]
+			check =  threads_stucks[0]
 			current_ts =  str(threads.getTimeStamp() )
 			if check != "failed":
-				hogging_cnt = threads.getThreadStucksCount( i )[1]
-				stuck_cnt = threads.getThreadStucksCount( i )[2]
-				for z in threads.getThreadStackHash( i ,  threads.getThreadStucksCount( i )[0] , paramESurl , paramESindexName , paramEStype ):
-					tmonLog2.append( [ j[0] , j[5], z[0] , current_ts] )
+				hogging_cnt = threads_stucks[1]
+				stuck_cnt = threads_stucks[2]
+				thread_list = threads_stucks[0]
+				for threads_hash in threads.getThreadStackHash( args ,  thread_list , paramESurl , paramESindexName , paramEStype ):
+					tmonLog2.append( [ profile_server[0] , profile_server[5],  threads_hash[0],  threads_hash[2] , current_ts] )
 			else:
 				print "debug: tmonStackMonitor - there is an issue to get attribute value, please check if server is available. \n"
 		return tmonLog2

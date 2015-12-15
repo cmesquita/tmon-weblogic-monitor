@@ -27,7 +27,7 @@ def getThreadStucksCount( serverlist ):
 				thread_hogging_elapsed = thread.currentRequest.split()
 				thread_elapsed = thread_hogging_elapsed[8]
 				thread_info = thread.getName().split()
-				thread_hogging.append(thread_info[1] + ' ' + thread_info[2])
+				thread_hogging.append(thread_info[1] + ' ' + thread_info[2] + ' ' +  thread_elapsed)
 		#[0] threads id list , [1] count threads hogging , [2] count threads stuck , [3] Throughput , [4] ExecuteThreadTotalCount , [5] ExecuteThreadIdleCount
 		threads_details.append(thread_hogging)
 		threads_details.append(hogging_count)
