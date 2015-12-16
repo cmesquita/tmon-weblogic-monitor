@@ -1,7 +1,7 @@
 
 ####################################################### 
 Thread dump for the running server: container02 
-Dumped this Thread at 12/15/15 10:12 AM 
+Dumped this Thread at 12/15/15 4:12 PM 
 #######################################################
 
 "[STANDBY] ExecuteThread: '25' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@77b4ef7d WAITING
@@ -68,11 +68,16 @@ Dumped this Thread at 12/15/15 10:12 AM
 	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
 	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
-"[ACTIVE] ExecuteThread: '16' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@2f4a9f51 WAITING
-	java.lang.Object.wait(Native Method)
-	java.lang.Object.wait(Object.java:503)
-	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
-	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
+"[ACTIVE] ExecuteThread: '16' for queue: 'weblogic.kernel.Default (self-tuning)'" TIMED_WAITING
+	java.lang.Thread.sleep(Native Method)
+	com.munzandmore.stuckthread.LongRunningEJB.threadSleep(LongRunningEJB.java:26)
+	com.munzandmore.stuckthread.LongRunningEJB_x9v26k_NoIntfViewImpl.__WL_invoke(Unknown Source)
+	weblogic.ejb.container.internal.SessionLocalMethodInvoker.invoke(SessionLocalMethodInvoker.java:33)
+	weblogic.ejb.container.internal.AsyncExecutor$Invoker.invoke(AsyncExecutor.java:205)
+	weblogic.ejb.container.internal.AsyncExecutor.run(AsyncExecutor.java:73)
+	weblogic.work.SelfTuningWorkManagerImpl$WorkAdapterImpl.run(SelfTuningWorkManagerImpl.java:550)
+	weblogic.work.ExecuteThread.execute(ExecuteThread.java:295)
+	weblogic.work.ExecuteThread.run(ExecuteThread.java:254)
 
 "[STANDBY] ExecuteThread: '15' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@4c219718 WAITING
 	java.lang.Object.wait(Native Method)
@@ -122,16 +127,11 @@ Dumped this Thread at 12/15/15 10:12 AM
 	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
 	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
-"[ACTIVE] ExecuteThread: '7' for queue: 'weblogic.kernel.Default (self-tuning)'" TIMED_WAITING
-	java.lang.Thread.sleep(Native Method)
-	com.munzandmore.stuckthread.LongRunningEJB.threadSleep(LongRunningEJB.java:26)
-	com.munzandmore.stuckthread.LongRunningEJB_x9v26k_NoIntfViewImpl.__WL_invoke(Unknown Source)
-	weblogic.ejb.container.internal.SessionLocalMethodInvoker.invoke(SessionLocalMethodInvoker.java:33)
-	weblogic.ejb.container.internal.AsyncExecutor$Invoker.invoke(AsyncExecutor.java:205)
-	weblogic.ejb.container.internal.AsyncExecutor.run(AsyncExecutor.java:73)
-	weblogic.work.SelfTuningWorkManagerImpl$WorkAdapterImpl.run(SelfTuningWorkManagerImpl.java:550)
-	weblogic.work.ExecuteThread.execute(ExecuteThread.java:295)
-	weblogic.work.ExecuteThread.run(ExecuteThread.java:254)
+"[STANDBY] ExecuteThread: '7' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@90633a7 WAITING
+	java.lang.Object.wait(Native Method)
+	java.lang.Object.wait(Object.java:503)
+	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
+	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
 "[STANDBY] ExecuteThread: '6' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@72262cd1 WAITING
 	java.lang.Object.wait(Native Method)

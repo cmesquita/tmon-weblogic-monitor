@@ -6,9 +6,9 @@ import time as pytime
 def tmonMetricsMonitor():
 		# parameter from tmon3.0.conf
 		paramServerList = configparser.getServerList()
-		paramAdminUser 	= configparser.getAdminUser()
-		paramAdminPass	= configparser.getAdminPass()
-		paramConnectString = configparser.getConnectString()
+		#paramAdminUser 	= configparser.getAdminUser()
+		#paramAdminPass	= configparser.getAdminPass()
+		#paramConnectString = configparser.getConnectString()
 		tmonLog = []	
 	
 		# tmonLog variable which has the data to be printed in the log file
@@ -18,9 +18,9 @@ def tmonMetricsMonitor():
 				server_name = profile_server[0]
 				app_name = profile_server[5]
 				gc_metrics = str(metrics.getGCmetrics( args ) )
-				heap_usage =  str(metrics.getJVMmetrics( args , paramAdminUser , paramAdminPass , paramConnectString  )) 
-				http_sessions =  str(metrics.getHTTPSessions( args , paramAdminUser , paramAdminPass , paramConnectString ))
-				open_sockets =  str(metrics.getOpenSockets( args , paramAdminUser , paramAdminPass , paramConnectString  ))
+				heap_usage =  str(metrics.getJVMmetrics( args )) 
+				http_sessions =  str(metrics.getHTTPSessions( args ))
+				open_sockets =  str(metrics.getOpenSockets( args ))
 				current_ts =  str(metrics.getTimeStamp() )
 
 				check =  threads.getThreadStucksCount( args )[0]
