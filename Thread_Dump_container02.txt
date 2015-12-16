@@ -1,7 +1,7 @@
 
 ####################################################### 
 Thread dump for the running server: container02 
-Dumped this Thread at 12/15/15 4:12 PM 
+Dumped this Thread at 12/16/15 8:03 AM 
 #######################################################
 
 "[STANDBY] ExecuteThread: '25' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@77b4ef7d WAITING
@@ -28,16 +28,11 @@ Dumped this Thread at 12/15/15 4:12 PM
 	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
 	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
-"[ACTIVE] ExecuteThread: '21' for queue: 'weblogic.kernel.Default (self-tuning)'" TIMED_WAITING
-	java.lang.Thread.sleep(Native Method)
-	com.munzandmore.stuckthread.LongRunningEJB.threadSleep(LongRunningEJB.java:26)
-	com.munzandmore.stuckthread.LongRunningEJB_x9v26k_NoIntfViewImpl.__WL_invoke(Unknown Source)
-	weblogic.ejb.container.internal.SessionLocalMethodInvoker.invoke(SessionLocalMethodInvoker.java:33)
-	weblogic.ejb.container.internal.AsyncExecutor$Invoker.invoke(AsyncExecutor.java:205)
-	weblogic.ejb.container.internal.AsyncExecutor.run(AsyncExecutor.java:73)
-	weblogic.work.SelfTuningWorkManagerImpl$WorkAdapterImpl.run(SelfTuningWorkManagerImpl.java:550)
-	weblogic.work.ExecuteThread.execute(ExecuteThread.java:295)
-	weblogic.work.ExecuteThread.run(ExecuteThread.java:254)
+"[ACTIVE] ExecuteThread: '21' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@7b317441 WAITING
+	java.lang.Object.wait(Native Method)
+	java.lang.Object.wait(Object.java:503)
+	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
+	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
 "[STANDBY] ExecuteThread: '20' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@6bc79696 WAITING
 	java.lang.Object.wait(Native Method)
@@ -45,14 +40,45 @@ Dumped this Thread at 12/15/15 4:12 PM
 	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
 	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
-"[ACTIVE] ExecuteThread: '19' for queue: 'weblogic.kernel.Default (self-tuning)'" TIMED_WAITING
-	java.lang.Thread.sleep(Native Method)
-	com.munzandmore.stuckthread.LongRunningEJB.threadSleep(LongRunningEJB.java:26)
-	com.munzandmore.stuckthread.LongRunningEJB_x9v26k_NoIntfViewImpl.__WL_invoke(Unknown Source)
-	weblogic.ejb.container.internal.SessionLocalMethodInvoker.invoke(SessionLocalMethodInvoker.java:33)
-	weblogic.ejb.container.internal.AsyncExecutor$Invoker.invoke(AsyncExecutor.java:205)
-	weblogic.ejb.container.internal.AsyncExecutor.run(AsyncExecutor.java:73)
-	weblogic.work.SelfTuningWorkManagerImpl$WorkAdapterImpl.run(SelfTuningWorkManagerImpl.java:550)
+"[ACTIVE] ExecuteThread: '19' for queue: 'weblogic.kernel.Default (self-tuning)'" RUNNABLE
+	sun.management.ThreadImpl.getThreadInfo1(Native Method)
+	sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:172)
+	weblogic.platform.VM15.threadDumpAsString(VM15.java:22)
+	weblogic.platform.VM.threadDumpAsString(VM.java:154)
+	weblogic.t3.srvr.JVMRuntime.getThreadStackDump(JVMRuntime.java:112)
+	sun.reflect.GeneratedMethodAccessor148.invoke(Unknown Source)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	weblogic.management.jmx.modelmbean.WLSModelMBean.getAttribute(WLSModelMBean.java:525)
+	com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getAttribute(DefaultMBeanServerInterceptor.java:647)
+	com.sun.jmx.mbeanserver.JmxMBeanServer.getAttribute(JmxMBeanServer.java:678)
+	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase$12.run(WLSMBeanServerInterceptorBase.java:326)
+	java.security.AccessController.doPrivileged(Native Method)
+	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase.getAttribute(WLSMBeanServerInterceptorBase.java:324)
+	weblogic.management.mbeanservers.internal.JMXContextInterceptor.getAttribute(JMXContextInterceptor.java:157)
+	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase$12.run(WLSMBeanServerInterceptorBase.java:326)
+	java.security.AccessController.doPrivileged(Native Method)
+	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase.getAttribute(WLSMBeanServerInterceptorBase.java:324)
+	weblogic.management.mbeanservers.internal.SecurityInterceptor.getAttribute(SecurityInterceptor.java:299)
+	weblogic.management.jmx.mbeanserver.WLSMBeanServer.getAttribute(WLSMBeanServer.java:279)
+	weblogic.management.mbeanservers.internal.JMXConnectorSubjectForwarder$5$1.run(JMXConnectorSubjectForwarder.java:327)
+	java.security.AccessController.doPrivileged(Native Method)
+	weblogic.management.mbeanservers.internal.JMXConnectorSubjectForwarder$5.run(JMXConnectorSubjectForwarder.java:325)
+	weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:363)
+	weblogic.management.mbeanservers.internal.JMXConnectorSubjectForwarder.getAttribute(JMXConnectorSubjectForwarder.java:320)
+	javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1464)
+	javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:97)
+	javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1328)
+	java.security.AccessController.doPrivileged(Native Method)
+	javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1427)
+	javax.management.remote.rmi.RMIConnectionImpl.getAttribute(RMIConnectionImpl.java:657)
+	javax.management.remote.rmi.RMIConnectionImpl_WLSkel.invoke(Unknown Source)
+	weblogic.rmi.internal.BasicServerRef.invoke(BasicServerRef.java:693)
+	weblogic.rmi.internal.BasicServerRef$1.run(BasicServerRef.java:519)
+	weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:363)
+	weblogic.security.service.SecurityManager.runAs(SecurityManager.java:146)
+	weblogic.rmi.internal.BasicServerRef.handleRequest(BasicServerRef.java:515)
+	weblogic.rmi.internal.wls.WLSExecuteRequest.run(WLSExecuteRequest.java:118)
 	weblogic.work.ExecuteThread.execute(ExecuteThread.java:295)
 	weblogic.work.ExecuteThread.run(ExecuteThread.java:254)
 
@@ -68,16 +94,11 @@ Dumped this Thread at 12/15/15 4:12 PM
 	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
 	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
-"[ACTIVE] ExecuteThread: '16' for queue: 'weblogic.kernel.Default (self-tuning)'" TIMED_WAITING
-	java.lang.Thread.sleep(Native Method)
-	com.munzandmore.stuckthread.LongRunningEJB.threadSleep(LongRunningEJB.java:26)
-	com.munzandmore.stuckthread.LongRunningEJB_x9v26k_NoIntfViewImpl.__WL_invoke(Unknown Source)
-	weblogic.ejb.container.internal.SessionLocalMethodInvoker.invoke(SessionLocalMethodInvoker.java:33)
-	weblogic.ejb.container.internal.AsyncExecutor$Invoker.invoke(AsyncExecutor.java:205)
-	weblogic.ejb.container.internal.AsyncExecutor.run(AsyncExecutor.java:73)
-	weblogic.work.SelfTuningWorkManagerImpl$WorkAdapterImpl.run(SelfTuningWorkManagerImpl.java:550)
-	weblogic.work.ExecuteThread.execute(ExecuteThread.java:295)
-	weblogic.work.ExecuteThread.run(ExecuteThread.java:254)
+"[ACTIVE] ExecuteThread: '16' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@2f4a9f51 WAITING
+	java.lang.Object.wait(Native Method)
+	java.lang.Object.wait(Object.java:503)
+	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
+	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
 "[STANDBY] ExecuteThread: '15' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@4c219718 WAITING
 	java.lang.Object.wait(Native Method)
@@ -302,47 +323,11 @@ Dumped this Thread at 12/15/15 4:12 PM
 	weblogic.time.common.internal.TimeEventGenerator.run(TimeEventGenerator.java:117)
 	java.lang.Thread.run(Thread.java:745)
 
-"[ACTIVE] ExecuteThread: '0' for queue: 'weblogic.kernel.Default (self-tuning)'" RUNNABLE
-	sun.management.ThreadImpl.getThreadInfo1(Native Method)
-	sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:172)
-	weblogic.platform.VM15.threadDumpAsString(VM15.java:22)
-	weblogic.platform.VM.threadDumpAsString(VM.java:154)
-	weblogic.t3.srvr.JVMRuntime.getThreadStackDump(JVMRuntime.java:112)
-	sun.reflect.GeneratedMethodAccessor148.invoke(Unknown Source)
-	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	java.lang.reflect.Method.invoke(Method.java:606)
-	weblogic.management.jmx.modelmbean.WLSModelMBean.getAttribute(WLSModelMBean.java:525)
-	com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getAttribute(DefaultMBeanServerInterceptor.java:647)
-	com.sun.jmx.mbeanserver.JmxMBeanServer.getAttribute(JmxMBeanServer.java:678)
-	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase$12.run(WLSMBeanServerInterceptorBase.java:326)
-	java.security.AccessController.doPrivileged(Native Method)
-	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase.getAttribute(WLSMBeanServerInterceptorBase.java:324)
-	weblogic.management.mbeanservers.internal.JMXContextInterceptor.getAttribute(JMXContextInterceptor.java:157)
-	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase$12.run(WLSMBeanServerInterceptorBase.java:326)
-	java.security.AccessController.doPrivileged(Native Method)
-	weblogic.management.jmx.mbeanserver.WLSMBeanServerInterceptorBase.getAttribute(WLSMBeanServerInterceptorBase.java:324)
-	weblogic.management.mbeanservers.internal.SecurityInterceptor.getAttribute(SecurityInterceptor.java:299)
-	weblogic.management.jmx.mbeanserver.WLSMBeanServer.getAttribute(WLSMBeanServer.java:279)
-	weblogic.management.mbeanservers.internal.JMXConnectorSubjectForwarder$5$1.run(JMXConnectorSubjectForwarder.java:327)
-	java.security.AccessController.doPrivileged(Native Method)
-	weblogic.management.mbeanservers.internal.JMXConnectorSubjectForwarder$5.run(JMXConnectorSubjectForwarder.java:325)
-	weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:363)
-	weblogic.management.mbeanservers.internal.JMXConnectorSubjectForwarder.getAttribute(JMXConnectorSubjectForwarder.java:320)
-	javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1464)
-	javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:97)
-	javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1328)
-	java.security.AccessController.doPrivileged(Native Method)
-	javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1427)
-	javax.management.remote.rmi.RMIConnectionImpl.getAttribute(RMIConnectionImpl.java:657)
-	javax.management.remote.rmi.RMIConnectionImpl_WLSkel.invoke(Unknown Source)
-	weblogic.rmi.internal.BasicServerRef.invoke(BasicServerRef.java:693)
-	weblogic.rmi.internal.BasicServerRef$1.run(BasicServerRef.java:519)
-	weblogic.security.acl.internal.AuthenticatedSubject.doAs(AuthenticatedSubject.java:363)
-	weblogic.security.service.SecurityManager.runAs(SecurityManager.java:146)
-	weblogic.rmi.internal.BasicServerRef.handleRequest(BasicServerRef.java:515)
-	weblogic.rmi.internal.wls.WLSExecuteRequest.run(WLSExecuteRequest.java:118)
-	weblogic.work.ExecuteThread.execute(ExecuteThread.java:295)
-	weblogic.work.ExecuteThread.run(ExecuteThread.java:254)
+"[ACTIVE] ExecuteThread: '0' for queue: 'weblogic.kernel.Default (self-tuning)'" waiting for lock weblogic.work.ExecuteThread@253e38a8 WAITING
+	java.lang.Object.wait(Native Method)
+	java.lang.Object.wait(Object.java:503)
+	weblogic.work.ExecuteThread.waitForRequest(ExecuteThread.java:238)
+	weblogic.work.ExecuteThread.run(ExecuteThread.java:264)
 
 "Timer-1" waiting for lock java.util.TaskQueue@17f9b0b2 TIMED_WAITING
 	java.lang.Object.wait(Native Method)

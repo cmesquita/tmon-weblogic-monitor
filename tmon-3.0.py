@@ -2,6 +2,7 @@ import  lib.tmon_configparser as configparser
 import  modules.tmon_metrics as metrics
 import	modules.tmon_threads as threads
 import time as pytime
+import datetime
 
 def tmonMetricsMonitor():
 		# parameter from tmon3.0.conf
@@ -14,6 +15,7 @@ def tmonMetricsMonitor():
 		# tmonLog variable which has the data to be printed in the log file
 		for args in paramServerList:
 			try:
+				start = datetime.datetime.now()
 				profile_server = args.split()
 				server_name = profile_server[0]
 				app_name = profile_server[5]
@@ -42,8 +44,12 @@ def tmonMetricsMonitor():
 					#container || app || gc time || gc count || heap usage || http sessions cnt || open sockets cnt || hogging cnt || stuck cnt|| Throughput || ExecuteThreadTotalCount || ExecuteThreadIdleCount || timestamp 
 				else:
 					print "debug: tmonMetricsMonitor - there is an issue to get attribute value, please check if server is available. \n"
+				end = datetime.datetime.now()
+				diff = end - start
+				print "function (tmonMetricsMonitor) container: " + server_name +  " tooks about: " + str(int(round(diff.microseconds / 1000))) + " to finish."
 			except WLSTException,e:
-				print "debug: tmonMetricsMonitor " + str(e) 		
+				print "debug: tmonMetricsMonitor " + str(e)
+			 		
 		return tmonLog
 	
 
