@@ -32,7 +32,7 @@ def getThreadStucksCount( serverlist ):
 		threads_details.append(thread_hogging)
 		threads_details.append(hogging_count)
 		threads_details.append(stuck_count)  
-		threads_details.append(round(thread_Throughput))
+		threads_details.append(int(round(thread_Throughput)))
 		threads_details.append(thread_ExecuteThreadTotalCount)
 		threads_details.append(thread_ExecuteThreadIdleCount)
 		disconnect()
