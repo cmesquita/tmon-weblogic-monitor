@@ -6,7 +6,7 @@ def extractStackTrace( file, threadid ):
 		thread_id = thread.split()[0]  + ' ' + thread.split()[1]
 		thread_elapsed = thread.split()[2]
 		print "debug: elapsed time " + thread_elapsed
-		print "debug: thread id " + thread_id
+		print "debug: thread id " + thread_id.split()[1]
 		print "debug: extract " + str(thread)
 		keepCurrentSet = False
 		inFile = open( file )
@@ -23,6 +23,6 @@ def extractStackTrace( file, threadid ):
 				elif keepCurrentSet:
 					buffer += line
 		inFile.close()
-		stack_list.append( [ buffer , thread_elapsed ] )
+		stack_list.append( [ buffer , thread_elapsed , thread_id.split()[1].replace("'","") ] )
 	return stack_list
 	#inFile.close()

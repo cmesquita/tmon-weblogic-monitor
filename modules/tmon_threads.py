@@ -32,7 +32,7 @@ def getThreadStucksCount( serverlist ):
 		threads_details.append(thread_hogging)
 		threads_details.append(hogging_count)
 		threads_details.append(stuck_count)  
-		threads_details.append(thread_Throughput)
+		threads_details.append(round(thread_Throughput))
 		threads_details.append(thread_ExecuteThreadTotalCount)
 		threads_details.append(thread_ExecuteThreadIdleCount)
 		disconnect()
@@ -55,6 +55,7 @@ def getThreadStackHash( serverlist , thread_id , es_url , es_indexname , es_type
 		threadDump()
 		file = 'Thread_Dump_'+j[0]+'.txt'
 		stacktrace = extract.extractStackTrace( file, thread_id )
+		print "debug: getThreadStackHash " + str(stacktrace)
 		stackmd5 = hash.genMD5(stacktrace)
 		elasticsearch.InsertIndex(stackmd5 , es_url , es_indexname , es_type )
 		disconnect()
